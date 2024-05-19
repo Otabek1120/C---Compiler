@@ -1,0 +1,47 @@
+FIRST sets:
+  arith_exp             :   ID INTCON LPAREN opSUB 
+  arithop               :   opADD opSUB opMUL opDIV 
+  assg_stmt             :   ID 
+  bool_exp              :   ID INTCON LPAREN opSUB 
+  expr_list             :   ID INTCON LPAREN opSUB 
+  fn_call               :   ID 
+  formals               :   kwINT 
+  func_defn             :   kwINT 
+  id_list               :   ID 
+  if_stmt               :   kwIF 
+  logical_op            :   opAND opOR 
+  opt_expr_list         :   ID INTCON LPAREN opSUB <epsilon> 
+  opt_formals           :   <epsilon> kwINT 
+  opt_stmt_list         :   <epsilon> ID kwIF kwRETURN LBRACE SEMI kwWHILE 
+  opt_var_decls         :   <epsilon> kwINT 
+  prog                  :   <epsilon> kwINT 
+  relop                 :   opEQ opNE opLE opLT opGE opGT 
+  return_stmt           :   kwRETURN 
+  stmt                  :   ID kwIF kwRETURN LBRACE SEMI kwWHILE 
+  type                  :   kwINT 
+  var_decl              :   kwINT 
+  while_stmt            :   kwWHILE 
+
+FOLLOW sets:
+  arith_exp             :   opADD opSUB opMUL opDIV RPAREN SEMI opEQ opNE opLE opLT opGE opGT COMMA opAND opOR 
+  arithop               :   ID INTCON LPAREN opSUB 
+  assg_stmt             :   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  bool_exp              :   opAND opOR RPAREN 
+  expr_list             :   RPAREN 
+  fn_call               :   opADD opSUB opMUL opDIV RPAREN SEMI opEQ opNE opLE opLT opGE opGT COMMA opAND opOR 
+  formals               :   RPAREN 
+  func_defn             :   kwINT <EOF> 
+  id_list               :   SEMI 
+  if_stmt               :   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  logical_op            :   ID INTCON LPAREN opSUB 
+  opt_expr_list         :   RPAREN 
+  opt_formals           :   RPAREN 
+  opt_stmt_list         :   RBRACE 
+  opt_var_decls         :   ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  prog                  :   <EOF> 
+  relop                 :   ID INTCON LPAREN opSUB 
+  return_stmt           :   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  stmt                  :   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  type                  :   ID 
+  var_decl              :   kwINT ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE <EOF> 
+  while_stmt            :   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
