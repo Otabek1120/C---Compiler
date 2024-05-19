@@ -1,0 +1,122 @@
+%token   kwINT ID 
+         LPAREN RPAREN LBRACE RBRACE SEMI COMMA INTCON kwELSE 
+         kwIF kwRETURN kwWHILE 
+         opASSG opEQ opGE opGT opLE opLT opNE
+         opADD opSUB opMUL opDIV
+         opAND opOR
+
+%start prog
+
+%%
+
+prog	         :	func_defn   prog
+ 	            |	var_decl   prog
+ 	            |	;
+
+var_decl	      :	type   id_list   SEMI;
+
+id_list	      :	ID
+ 	            |	ID   COMMA   id_list;
+
+type	         :	kwINT;
+
+func_defn	   :	type   ID   LPAREN   opt_formals   RPAREN   LBRACE   opt_var_decls   opt_stmt_list   RBRACE;
+
+opt_formals	   : formals 
+               | ;
+
+formals	      :	type ID   COMMA   formals
+ 	            |	type ID;
+
+opt_var_decls	:	var_decl   opt_var_decls
+ 	            |	;
+
+opt_stmt_list	:	stmt   opt_stmt_list
+ 	            |	;
+
+stmt	         :	fn_call   SEMI
+ 	            |	while_stmt
+               |	if_stmt
+               |	assg_stmt
+               |	return_stmt
+               |	LBRACE   opt_stmt_list   RBRACE
+               |	SEMI;
+ 
+if_stmt	      :	kwIF   LPAREN   bool_exp   RPAREN   stmt
+ 	            |	kwIF   LPAREN   bool_exp   RPAREN   stmt   kwELSE   stmt;
+ 
+while_stmt	   :	kwWHILE   LPAREN   bool_exp   RPAREN   stmt;
+ 
+return_stmt	   :	kwRETURN   SEMI
+ 	            |	kwRETURN   arith_exp   SEMI;
+ 
+assg_stmt	   :	ID   opASSG   arith_exp   SEMI;
+ 
+fn_call	      :	ID   LPAREN   opt_expr_list   RPAREN;
+
+opt_expr_list	:	expr_list
+               | ;
+ 
+expr_list	   :	arith_exp   COMMA   expr_list
+ 	            |	arith_exp;
+
+
+
+
+
+
+bool_exp          : or_expr;
+
+or_expr           : and_expr or_expr_Helper;
+or_expr_Helper    : opOR and_expr or_expr_Helper
+                  | ;
+
+and_expr          : rel_expr and_expr_Helper;
+and_expr_Helper   : opAND rel_expr and_expr_Helper
+                  | ;
+
+
+rel_expr          : arith_exp relop arith_exp
+                  | arith_exp;
+
+
+
+
+arith_exp         : add_subB_expr;
+
+add_subB_expr     : mul_div_expr add_subB_Helper;
+add_subB_Helper   : opADD mul_div_expr add_subB_Helper
+                  | opSUB mul_div_expr add_subB_Helper
+                  | ;
+
+mul_div_expr      : subU_expr mul_div_Helper;
+mul_div_Helper    : opMUL subU_expr mul_div_Helper
+                  | opDIV subU_expr mul_div_Helper
+                  | ;
+
+subU_expr         : opSUB subU_expr
+                  | basic_expr;
+
+basic_expr        : ID
+                  | INTCON
+                  | LPAREN arith_exp RPAREN
+                  | fn_call;
+
+
+
+
+
+arithop           : opADD
+                  | opSUB
+                  | opMUL
+                  | opDIV;
+
+relop             : opEQ
+                  | opNE
+                  | opLE
+                  | opLT
+                  | opGE
+                  | opGT;
+
+logical_op        : opAND
+                  | opOR;

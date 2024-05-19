@@ -1,0 +1,70 @@
+
+FIRST sets:
+  add_subB_Helper:   opADD opSUB <epsilon> 
+  add_subB_expr:   opSUB ID INTCON LPAREN 
+  and_expr:   opSUB ID INTCON LPAREN 
+  and_expr_Helper:   opAND <epsilon> 
+  arith_exp:   opSUB ID INTCON LPAREN 
+  arithop:   opADD opSUB opMUL opDIV 
+  assg_stmt:   ID 
+  basic_expr:   ID INTCON LPAREN 
+  bool_exp:   opSUB ID INTCON LPAREN 
+  expr_list:   opSUB ID INTCON LPAREN 
+  fn_call:   ID 
+  formals:   kwINT 
+  func_defn:   kwINT 
+  id_list:   ID 
+  if_stmt:   kwIF 
+  logical_op:   opAND opOR 
+  mul_div_Helper:   opMUL opDIV <epsilon> 
+  mul_div_expr:   opSUB ID INTCON LPAREN 
+  opt_expr_list:   <epsilon> opSUB ID INTCON LPAREN 
+  opt_formals:   <epsilon> kwINT 
+  opt_stmt_list:   <epsilon> ID kwIF kwRETURN LBRACE SEMI kwWHILE 
+  opt_var_decls:   <epsilon> kwINT 
+  or_expr:   opSUB ID INTCON LPAREN 
+  or_expr_Helper:   opOR <epsilon> 
+  prog:   <epsilon> kwINT 
+  rel_expr:   opSUB ID INTCON LPAREN 
+  relop:   opEQ opNE opLE opLT opGE opGT 
+  return_stmt:   kwRETURN 
+  stmt:   ID kwIF kwRETURN LBRACE SEMI kwWHILE 
+  subU_expr:   opSUB ID INTCON LPAREN 
+  type:   kwINT 
+  var_decl:   kwINT 
+  while_stmt:   kwWHILE 
+
+FOLLOW sets:
+  add_subB_Helper:   SEMI RPAREN COMMA opEQ opNE opLE opLT opGE opGT opAND opOR 
+  add_subB_expr:   SEMI RPAREN COMMA opEQ opNE opLE opLT opGE opGT opAND opOR 
+  and_expr:   opOR RPAREN 
+  and_expr_Helper:   opOR RPAREN 
+  arith_exp:   SEMI RPAREN COMMA opEQ opNE opLE opLT opGE opGT opAND opOR 
+  arithop:   -EMPTYSET-
+  assg_stmt:   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  basic_expr:   opMUL opDIV opADD opSUB SEMI RPAREN COMMA opEQ opNE opLE opLT opGE opGT opAND opOR 
+  bool_exp:   RPAREN 
+  expr_list:   RPAREN 
+  fn_call:   SEMI opMUL opDIV opADD opSUB RPAREN COMMA opEQ opNE opLE opLT opGE opGT opAND opOR 
+  formals:   RPAREN 
+  func_defn:   kwINT <EOF> 
+  id_list:   SEMI 
+  if_stmt:   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  logical_op:   -EMPTYSET-
+  mul_div_Helper:   opADD opSUB SEMI RPAREN COMMA opEQ opNE opLE opLT opGE opGT opAND opOR 
+  mul_div_expr:   opADD opSUB SEMI RPAREN COMMA opEQ opNE opLE opLT opGE opGT opAND opOR 
+  opt_expr_list:   RPAREN 
+  opt_formals:   RPAREN 
+  opt_stmt_list:   RBRACE 
+  opt_var_decls:   ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  or_expr:   RPAREN 
+  or_expr_Helper:   RPAREN 
+  prog:   <EOF> 
+  rel_expr:   opAND opOR RPAREN 
+  relop:   opSUB ID INTCON LPAREN 
+  return_stmt:   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  stmt:   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
+  subU_expr:   opMUL opDIV opADD opSUB SEMI RPAREN COMMA opEQ opNE opLE opLT opGE opGT opAND opOR 
+  type:   ID 
+  var_decl:   kwINT ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE <EOF> 
+  while_stmt:   kwELSE ID kwIF kwRETURN LBRACE SEMI kwWHILE RBRACE 
