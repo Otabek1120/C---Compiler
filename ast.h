@@ -1,6 +1,5 @@
 /*
  * File: ast.h
- * Author: Saumya Debray
  * Purpose: typedefs and prototypes for syntax trees
  */
 
