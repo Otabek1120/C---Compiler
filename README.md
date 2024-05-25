@@ -69,3 +69,10 @@ int main() {
     println(x);
 
 }
+```
+
+## Full C-- Language Specification
+```
+https://github.com/Otabek1120/C---Compiler/blob/main/Full%20C--%20language%20-%20CSC%20453%20SP24%20001.pdf
+```
+
