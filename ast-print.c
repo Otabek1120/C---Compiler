@@ -1,6 +1,5 @@
 /*
  * File: ast-print.c
- * Author: Saumya Debray
  * Purpose: Code to print syntax trees
  */
 
