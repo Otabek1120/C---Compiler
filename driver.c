@@ -1,6 +1,5 @@
 /*
  * File: parser-driver.c
- * Author: Saumya Debray
  * Purpose: The driver code for the CSC 453 project.  It uses command-line
  *          arguments to control whether semantic checks and/or code
  *          generation is carried out.
