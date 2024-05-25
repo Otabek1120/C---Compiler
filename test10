@@ -1,0 +1,34 @@
+/* codegen: expressions containing function calls and several of a single kind of operator */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int x, y;
+
+int one() { return 1; }
+
+int two() {
+    return one() + one();
+}
+
+int main() {
+    int u, v;
+
+    x = one();
+    u = two();
+    
+    u = one() + two() + one() + two();
+    println(u);
+    
+    v = one() - two() - one() - two();
+    println(v);
+
+    v = one() * two() * one() * two();
+    println(v);
+
+    v = 10 / two() / one() / two();
+    println(v);
+
+}

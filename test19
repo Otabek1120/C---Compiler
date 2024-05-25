@@ -1,0 +1,18 @@
+/* codegen: simple IF statements: no operators */
+
+int main() {
+    int x, y;
+
+    if (1 > 0)
+        println(1);
+    else
+        println(0);
+
+    x = 1;
+    y = 2;
+
+    if (x == y)
+        println(0);
+    else
+        println(1);
+}

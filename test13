@@ -1,0 +1,31 @@
+/* codegen: expressions containing nested function calls with operators */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int x, y;
+
+int one() { return 1; }
+
+int two() { return 2; }
+
+int add(int x, int y) { return x + y; }
+
+int main() {
+    int u, v;
+
+    x = one();
+    y = two();
+    
+    u = add(one(), two());
+    println(u);
+    
+    v = add(two()+two(), two()+two());
+    println(v);
+
+    v = add(two()*two()+1, two()-one()*two()-one());
+    println(v);
+
+}

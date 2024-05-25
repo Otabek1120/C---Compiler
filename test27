@@ -1,0 +1,25 @@
+/* codegen: IF statements: nested simple if statements */
+
+int x, y, z;
+
+int main() {
+    x = 1; y = 2; z = 3;
+
+    if (x > 0) {
+        if (y < z) {
+	    if (z > 0) {
+	        println(12345);
+	    }
+	    else {
+	        println(23456);
+	    }
+	}
+	else {
+	    println(34567);
+	}
+    }
+    else {
+         println(45678);
+    }
+}
+

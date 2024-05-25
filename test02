@@ -1,0 +1,34 @@
+/* codegen: expressions containing at most one operator */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int z, w;
+
+int main() {
+    int x, y;
+
+    y = 123;
+    z = 456;
+    w = 3;
+
+    x = y + z;
+    println(x);
+    
+    x = y - z;
+    println(x);
+    
+    x = y * w;
+    println(x);
+    
+    x = y / w;
+    println(x);
+
+    x = (x);
+    println(x);
+
+    x = -x;
+    println(x);
+}

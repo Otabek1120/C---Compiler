@@ -1,0 +1,22 @@
+/* codegen: IF statements: expressions containing function calls and operators */
+
+int f(int x) { return -1+x+3; }
+int g(int x) { return x+2; }
+int h(int x, int y) { return x*2 + y*3; }
+
+int main() {
+    int x, y;
+
+    x = 1;
+    y = 2;
+
+    if (f(g(y)+f(x)-1) == g(f(x)*g(1)))
+        println(4);
+    else
+        println(7);
+
+    if ( h(x, y)*2-g(x) < h(y, x)*f(2)-g(3) )
+        println(19);
+    else
+        println(23);
+}

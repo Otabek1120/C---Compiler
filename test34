@@ -1,0 +1,41 @@
+/* codegen: RETURN statements */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int f1() { return 123 + 456; }
+
+int f2(int x) { return x - 456; }
+
+int f3(int x, int y) { return x * y; }
+
+int f4() { return 123 / 3; }
+
+int f5(int x) { return (x); }
+
+int f6(int x) { return -x; }
+
+int main() {
+    int x;
+
+    x = f1();
+    println(x);
+    
+    x = f2(123);
+    println(x);
+    
+    x = f3(123, 3);
+    println(x);
+    
+    x = f4();
+    println(x);
+
+    x = f5(123);
+    println(x);
+
+    x = f6(123);
+    println(x);
+
+}

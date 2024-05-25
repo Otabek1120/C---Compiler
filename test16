@@ -1,0 +1,35 @@
+/* codegen: expressions containing function calls */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int x, y, z;
+
+int one() { z = 1; }
+
+int two() { z = 2; }
+
+int add(int x, int y) { z = x + y; }
+
+int sub(int x, int y) { z = x - y; }
+
+int main() {
+    int u, v;
+
+    one();
+    println(z);
+    
+    two();
+    println(z);
+
+    x = 1;
+    y = 2;
+    add(x, y );
+    println(z);
+    
+    sub(x, y);
+    println(z);
+
+}

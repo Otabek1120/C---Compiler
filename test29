@@ -1,0 +1,13 @@
+/* codegen: WHILE statements: simple expressions */
+
+int f(int n) {
+    while (n > 0) {
+        println(n);
+	n = n - 1;
+    }
+}
+
+int main() {
+    f(5);
+}
+

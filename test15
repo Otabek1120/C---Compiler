@@ -1,0 +1,27 @@
+/* codegen: expressions containing function calls and different
+   kinds of operators */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int x, y;
+
+int incr(int x) { return x+1; }
+
+int main() {
+    int u, v;
+
+    x = incr(0) + incr(1) - incr(2) * incr(3) / incr(4);
+    println(x);
+
+    y = incr(0) - incr(1) * incr(2) / incr(3) + incr(4);
+    println(y);
+
+    u = incr(0) * incr(1) / incr(2) + incr(3) - incr(4);
+    println(y);
+
+    u = incr(0) / incr(1) + incr(2) - incr(3) * incr(4);
+    println(y);
+}

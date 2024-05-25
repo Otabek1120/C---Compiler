@@ -1,0 +1,61 @@
+/* codegen: expressions containing two operators */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int z, v;
+
+int main() {
+    int x, y;
+
+    x = 11;
+    y = 22;
+    z = 33;
+
+    v = x + y + z;
+    println(v);
+
+    v = x - y - z;
+    println(v);
+
+    v = x * y * z;
+    println(v);
+
+    v = v / z / y;
+    println(v);
+
+    v = x - y + z;
+    println(v);
+
+    v = x + y - z;
+    println(v);
+
+    v = x * y / z;
+    println(v);
+
+    v = y / x * z;
+    println(v);
+
+    v = -x + y;
+    println(v);
+
+    v = x +-y;
+    println(v);
+
+    v = -x * y;
+    println(v);
+
+    v = x *-y;
+    println(v);
+
+    v = -z/x;
+    println(v);
+
+    v = z/-x;
+    println(v);
+
+}
+
+

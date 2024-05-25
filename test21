@@ -1,0 +1,18 @@
+/* codegen: IF statements: expressions containing different kinds of operators */
+
+int main() {
+    int x, y;
+
+    if (-1+2*3/4 > 1-2+3/4)
+        println(1);
+    else
+        println(0);
+
+    x = 1;
+    y = 2;
+
+    if (y+2*3-x/2 <= -x/2+3*y)
+        println(1);
+    else
+        println(0);
+}

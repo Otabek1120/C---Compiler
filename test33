@@ -1,0 +1,17 @@
+/* codegen: WHILE statements: short-circuit evaluation of || */
+
+int x;
+
+int increment(int n) {
+    x = x + n;
+    println(x);
+    return x;
+}
+
+int main() {
+    x = 5;
+    while (x == 0 && increment(-1) != 0 || increment(-1) != 0) {
+        println(x);
+    }
+}
+

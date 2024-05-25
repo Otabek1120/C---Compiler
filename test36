@@ -1,0 +1,42 @@
+/* codegen: RETURN statements containing several of one kind of operator */
+
+int f1(int x, int y, int z, int w) {
+    return x + y + z + w;
+}
+
+int f2(int x, int y, int z, int w) {
+    return x - y - z - w;
+}
+
+int f3(int x, int y, int z, int w) {
+    return x * y * z * w;
+}
+
+int f4(int x, int y, int z, int w) {
+    return x / y / z / w;
+}
+
+int f5(int x) {
+    return - - -x;
+}
+
+int main() {
+    int x;
+
+    x = f1(1,2,3,4);
+    println(x);
+
+    x = f2(2,3,4,5);
+    println(x);
+
+    x = f3(2,3,4,5);
+    println(x);
+
+    x = f4(2*2*2*2,2,2,2);
+    println(x);
+
+    x = f5(3);
+    println(x);
+
+}
+

@@ -1,0 +1,25 @@
+/* codegen: expressions containing nested function calls in WHILE statements */
+
+int i;
+
+int value_of(int x) { return x; }
+
+int i_less_than_n(int i, int n) {
+    if (i < n) return 1;
+    else return 0;
+}
+
+int main() {
+    int i, n, prod;
+
+    n = 10;
+    prod = 1;
+
+    /* compute factorial of n */
+    i = 1;
+    while ( i_less_than_n(value_of(i), value_of(n)) == 1 ) {
+        println(prod);
+	prod = prod * i;
+	i = i+1;
+    }
+}

@@ -1,0 +1,40 @@
+/* codegen: RETURN statements: simple function calls */
+
+int add(int x, int y) { return x + y; }
+
+int sub(int x, int y) { return x - y; }
+
+int f1(int x, int y) {
+    return add(x, y);
+}
+
+int f2(int x, int y) {
+    return add(x, y) + sub(x, y);
+}
+
+int f3(int x, int y) {
+    return add(x, y) - sub(x, y) * add(y, x);
+}
+
+int f4(int x, int y) {
+    return add(x, y) - sub(x, y) * add(y, x) / (sub(y, x) + add(x, y));
+}
+
+
+
+
+int main() {
+    int x;
+
+    x = f1(1, 2);
+    println(x);
+
+    x = f2(1, 2);
+    println(x);
+
+    x = f3(1, 2);
+    println(x);
+
+    x = f4(1, 2);
+    println(x);
+}

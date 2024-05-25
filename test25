@@ -1,0 +1,19 @@
+/* codegen: if statements: short-circuit evaluation of && */
+
+int x;
+
+int side_effect(int n) {
+    x = x + n;    /* change the value of the global x */
+    println(x);
+    return x;
+}
+
+int main() {
+    x = 1;
+
+    if (x == 0 && side_effect(3) != 1)
+        println(0);
+    else
+        println(1);
+}
+

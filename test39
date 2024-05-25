@@ -1,0 +1,31 @@
+/* codegen: RETURN statements: nested function calls */
+
+int add(int x, int y) { return x + y; }
+
+int sub(int x, int y) { return x - y; }
+
+int f1(int x, int y) {
+    return add(add(x,y), 1);
+}
+
+int f2(int x, int y) {
+    return sub(add(x, y), sub(x, y));
+}
+
+int f3(int x, int y) {
+    return add(sub(x, y), sub(add(x,y)*add(y,x), x));
+}
+
+int main() {
+    int x;
+
+    x = f1(1, 2);
+    println(x);
+
+    x = f2(1, 2);
+    println(x);
+
+    x = f3(1, 2);
+    println(x);
+
+}

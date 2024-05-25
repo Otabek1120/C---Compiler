@@ -1,0 +1,37 @@
+/* codegen: RETURN statements: expressions containing two operators */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int z, v;
+
+int f1(int x, int y, int z) { return x + y - z; }
+
+int f2(int x, int y, int z) { return x - y + z; }
+
+int f3(int x, int y, int z) { return z / x * y; }
+
+int f4(int x) { return - -x; }
+
+
+int main() {
+    int x, y;
+
+    x = 11;
+    y = 22;
+    z = 33;
+
+    v = f1(x, y, z);
+    println(v);
+
+    v = f2(x, y, z);
+    println(v);
+
+    v = f3(x, y, z);
+    println(v);
+
+    v = f4(x);
+    println(v);
+}

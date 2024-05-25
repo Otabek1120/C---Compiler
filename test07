@@ -1,0 +1,28 @@
+/* codegen: expressions containing multiple occurrences of different operators */
+
+/* ---REMOVE TO COMPILE AS C CODE---
+#include <stdio.h>
+void println(int x) { printf("%d\n", x); }
+---REMOVE TO COMPILE AS C CODE--- */
+
+int  u, v, w;
+
+int main() {
+    int x, y, z;
+
+    x = 1; y = 2; z = 3; u = 4; w = 10;
+
+    v = x + y - z * w / u;
+    println(v);
+
+    v = x - y * z / w + u;
+    println(v);
+
+    v = x * y / z + w - u;
+    println(v);
+
+    v = x / y + z - w * u;
+    println(v);
+
+}
+

@@ -1,0 +1,22 @@
+/* codegen: if statements: short-circuit evaluation of || and && */
+
+int x, y;
+
+int side_effect(int n) {
+    x = x + n;    /* change the value of the global x */
+    y = y + n;    /* change the value of the global y */
+    println(x);
+    println(y);
+    return 0;
+}
+
+int main() {
+    x = 1;
+    y = 2;
+
+    if (x == 0 && side_effect(1) == 1 || side_effect(3) != 1)
+        println(1);
+    else
+        println(0);
+}
+
