@@ -12,7 +12,7 @@ This program scans the C-- source code, does semantic checking using symbol tabl
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/cminus-to-mips-compiler.git
+    git clone https://github.com/Otabek1120/C---Compiler
     cd cminus-to-mips-compiler
     ```
 
